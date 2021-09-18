@@ -2,7 +2,7 @@ defmodule PolonesTest do
   use ExUnit.Case
   doctest Polones
 
-  test "greets the world" do
-    assert Polones.hello() == :world
+  test "starts the calculator" do
+    assert ExUnit.CaptureIO.capture_io(fn -> Polones.start() end) == "Calculator started...\n"
   end
 end
