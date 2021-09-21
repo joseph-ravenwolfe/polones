@@ -1,21 +1,55 @@
-# Polones
+# :1234: Polones
 
-**TODO: Add description**
+Polones is a reverse polish calculator written in Elixir.
 
-## Installation
+## Features
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `polones` to your list of dependencies in `mix.exs`:
+### Highly Maintainable
+
+Requirements change? No problem, Polones is highly extensible. Need a new interface? We have you covered. Don't like RPN? Swap out the Calculator. Everything in Polones is built for long running evolution.
+
+Polones comes pre-built with an Elixir string and Console adapter, but you can easily create your own as the project's needs change.
 
 ```elixir
-def deps do
-  [
-    {:polones, "~> 0.1.0"}
-  ]
+# Create a Console adapter that uses Emoji prompts.
+defmodule Polones.MyEmojiAdapter do
+  # ...
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/polones](https://hexdocs.pm/polones).
+### Time Machine
 
+![Delorean](https://media.giphy.com/media/xsF1FSDbjguis/giphy.gif)
+
+Make a mistake? Don't panic, just rewind and fast forward through time with `rw`, and `ff`. You'll feel like a master of the universe.
+
+```shell
+> 2 30 +
+32.0 # Whoops
+> rw
+30.0
+> rw
+2.0
+> 0.3 +
+2.3
+> q
+Bye!
+```
+
+## Usage
+
+For machines with Elixir, run `mix calculator`.
+
+In Progress: This package will also be vendored via Docker and as a runnable
+binary, but this is currently still under active development.
+
+Or in Elixir:
+
+```elixir
+Polones.start_session
+> 2 3 +
+# => 5.0
+> 2
+# => 2.0
+> *
+# => 10.0
