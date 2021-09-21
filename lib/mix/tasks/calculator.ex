@@ -4,6 +4,8 @@ defmodule Mix.Tasks.Calculator do
   @shortdoc "Start an instance of Polones"
 
   def run(_) do
-    Polones.start()
+    {:ok, _pid} = Polones.History.start_link([])
+    {:ok, _pid} = Polones.Stack.start_link([])
+    Polones.ConsoleAdapter.start
   end
 end
